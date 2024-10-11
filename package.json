@@ -6,7 +6,7 @@
     "export": "./slidev.sh export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.30.3",
+    "@slidev/cli": "^0.50.0-beta.3",
     "@slidev/theme-default": "*",
     "@slidev/theme-seriph": "*",
     "playwright-chromium": "^1.21.1"

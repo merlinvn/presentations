@@ -1,40 +1,19 @@
 #!/bin/bash
 
 case "$1" in
-  build)
-    for i in $(ls presentations/*.md | sed 's/presentations\/\|\.md//g') 
-      do slidev build ./presentations/$i.md -d --base /slidev/$i/ --out ../dist/$i/
-    done
+build)
+  for i in $(find presentations -name '*.md' -exec basename {} .md \;); do
+    slidev build "./presentations/$i.md" -d --base "/presentations/$i/" --out "../dist/$i/"
+  done
   ;;
-  dev)
-  slidev --open ./presentations/$2.md
-  # "${@:2}"
+dev)
+  slidev --open "./presentations/$2.md"
   ;;
-  export)
+export)
   mkdir -p pdf
-    for i in $(ls presentations/*.md | sed 's/presentations\/\|\.md//g') 
-      do slidev export ./presentations/$i.md --output ./pdf/$i.pdf --timeout 1000000
-    done
+  for i in $(find presentations -name '*.md' -exec basename {} .md \;); do
+    slidev export "./presentations/$i.md" --output "./pdf/$i.pdf" --timeout 1000000
+  done
   ;;
-  *)
-  ;;
+*) ;;
 esac
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
