@@ -4,16 +4,16 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3 # Update to v3 to use the latest supported Node.js version
+      - uses: actions/setup-node@v3 # Update to v3 to use the latest supported Node.js version
         with:
-          node-version: '18'
+          node-version: "18" # Specify Node.js 18
       - name: Install dependencies
         run: yarn install
       - name: Build
         run: yarn build
       - name: Deploy pages
-        uses: crazy-max/ghaction-github-pages@v2
+        uses: crazy-max/ghaction-github-pages@v3 # Update to v3 to use the latest supported Node.js version
         with:
           build_dir: dist
         env:
